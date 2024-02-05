@@ -33,6 +33,21 @@ class SetOfStacks {
         }
         return value;
     }
+
+    popAt(index) {
+        if (index < 0 || index >= this.stacks.length) {
+            throw new Error("IndexOutOfBoundException");
+        }
+        if (this.stacks[index].length === 0) {
+            throw new Error("EmptyStackException");
+        }
+        let value = this.stacks[index].pop();
+        if (this.stacks[index].length === 0 && this.stacks.length > 1) {
+            // 비어있는 스택 제거
+            this.stacks.splice(index, 1); // index 위치로부터 1개 요소 제거
+        }
+        return value;
+    }
 }
 
 const setOfStacks = new SetOfStacks(5);
@@ -46,3 +61,5 @@ setOfStacks.push(6); // 새로운 스택 생성 및 6 추가
 console.log(setOfStacks.pop()); // 6 반환 및 마지막 스택에서 제거
 console.log(setOfStacks.pop()); // 5 반환
 
+console.log(setOfStacks.popAt(0)); // 첫 번째 스택에서 요소 제거
+console.log(setOfStacks.pop()); // 마지막 스택에서 요소 제거
