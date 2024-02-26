@@ -22,9 +22,11 @@ function findCommonAncestor(root, p, q) {
 }
 
 // 이진 트리 노드 정의
-function TreeNode(val) {
-    this.val = val;
-    this.left = this.right = null;
+class TreeNode {
+    constructor(val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
 }
 
 // 사용 예시

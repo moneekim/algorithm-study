@@ -11,7 +11,7 @@ class TreeNode {
   }
 }
 
-// 이 함수는 가능한 모든 BST 배열 순서를 찾아 출력합니다.
+// 이 함수는 가능한 모든 BST(Binary Search Tree) 배열 순서를 찾아 출력합니다.
 // `root`: 현재 노드, `possibleInput`: 가능한 입력 값의 큐, `nextNode`: 다음에 방문할 노드의 큐
 function BSTSequence(root, possibleInput = [], nextNodes = []) {
   if (root !== null) {

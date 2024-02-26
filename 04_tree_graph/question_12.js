@@ -9,7 +9,7 @@ Q. 각 노드의 값이 정수(음수 및 양수)인 이진트리가 있다.
 function pathSum(root, sum) {
   if (root === null) return 0;
 
-  // _pathSum 함수: 재 노드에서 시작하는 모든 경로를 탐색하며, 주어진 합을 만족하는 경로의 수를 반환합니다.
+  // _pathSum 함수: 현재 노드에서 시작하는 모든 경로를 탐색하며, 주어진 합을 만족하는 경로의 수를 반환합니다.
   function _pathSum(node, currentSum) {
     if (node === null) return 0;
 
@@ -27,7 +27,6 @@ function pathSum(root, sum) {
   return _pathSum(root, 0) + pathSum(root.left, sum) + pathSum(root.right, sum);
 }
 
-// TreeNode 클래스 정의
 class TreeNode {
   constructor(val = 0, left = null, right = null) {
     this.val = val;

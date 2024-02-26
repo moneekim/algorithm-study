@@ -11,8 +11,8 @@ Q. 프로젝트의 리스트와 프로젝트들 간의 종속 관계
 */
 
 function findOrder(projects, dependencies) {
-  let adjList = new Map(); // 각 프로젝트의 종속성을 저장하는 인접 리스트
   let inDegree = new Map(); // 각 프로젝트의 진입 차수
+  let adjList = new Map(); // 각 프로젝트의 종속성을 저장하는 인접 리스트
   let order = []; // 수행 순서
   let queue = []; // 진입 차수가 0인 프로젝트를 저장하는 큐
 
@@ -33,7 +33,6 @@ function findOrder(projects, dependencies) {
     if (degree === 0) queue.push(project);
   }
 
-  // 위상 정렬
   while (queue.length) {
     let project = queue.shift();
     order.push(project);
