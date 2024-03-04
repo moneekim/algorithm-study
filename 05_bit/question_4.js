@@ -74,3 +74,6 @@ function getPrev(n) {
 
   return n;
 }
+
+console.log(getNext(13948).toString(2));
+console.log(getPrev(13948).toString(2));
