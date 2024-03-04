@@ -45,4 +45,9 @@ let root = new TreeNode(2);
 root.left = new TreeNode(1);
 root.right = new TreeNode(3);
 
+//   2
+// 1   3
+
+// 2 3 1, 2 1 3
+
 BSTSequence(root); // 루트 노드부터 시작
