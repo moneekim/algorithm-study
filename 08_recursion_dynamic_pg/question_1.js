@@ -7,7 +7,7 @@
 // i. brute-force 방법
 /**
 n번째 계단을 오르는 경우는 다음 중 하나가 된다.
-- (n-l)번째 계단에서 한 계단 올라가기
+- (n-1)번째 계단에서 한 계단 올라가기
 - (n-2)번째 계단에서 두 계단 올라가기
 - (n-3)번째 계단에서 세 계단 올라가기
  */
@@ -42,3 +42,5 @@ function countWaysHelper(n, memo) {
     return memo[n];
   }
 }
+
+console.log(countWays_memoization(10));

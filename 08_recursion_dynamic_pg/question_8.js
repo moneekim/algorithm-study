@@ -11,6 +11,7 @@ function printPerms(s) {
 }
 
 // 문자열 내 각 문자의 빈도수를 계산하여 Map 객체로 반환
+// s: aabc
 function buildFreqTable(s) {
   let map = new Map();
   for (let c of s) {
@@ -19,10 +20,11 @@ function buildFreqTable(s) {
     }
     map.set(c, map.get(c) + 1);
   }
+  console.log(s, map);
   return map; // s가 aab map = Map(2) { 'a' => 2, 'b' => 1 }
 }
 
-// 재귀적으로 순열을 생성하며, 각 문자의 사용 횟수를 추적하여 중복 생성을 방지
+// 재귀적으로 순열을 생성하며, 각 문자의 사용 횟수를 추 적하여 중복 생성을 방지
 function generatePerms(map, prefix, remaining, result) {
   // 순열이 완성되었을 경우
   if (remaining === 0) {
@@ -30,10 +32,11 @@ function generatePerms(map, prefix, remaining, result) {
     return;
   }
   // 남은 문자들을 이용해서 나머지 순열을 생성
+  // ex. { 'a' => 2, 'b' => 1, ‘c’ => 1 }
   for (let [c, count] of map.entries()) {
     if (count > 0) {
-      map.set(c, count - 1); // 빈도 업데이트
-      generatePerms(map, prefix + c, remaining - 1, result);
+      map.set(c, count - 1); // 빈도 업데이트 // { 'a' => 1, 'b' => 1, ‘c’ => 1 }
+      generatePerms(map, prefix + c, remaining - 1, result); // prefix: a, remaining: 3
       // 재귀 호출 후에는 원래 문자의 카운트를 복원
       map.set(c, count);
     }
@@ -42,3 +45,4 @@ function generatePerms(map, prefix, remaining, result) {
 
 console.log(printPerms("abc"));
 console.log(printPerms("aab"));
+console.log(printPerms("aabc"));
